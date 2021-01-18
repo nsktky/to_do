@@ -1,8 +1,24 @@
+<!-- base.htmlを呼び出すためextendsする -->
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="alert alert-dark" role="alert">
+list
+</div>
+{% endblock %}
+
+{% block content %}
 <!-- object_listはviews.pyのToDoListで指定した全てのmodelデータ -->
 {% for item in object_list %}
 <!-- 各フィールドを指定しオブジェクトを取り出す -->
-<ul>
-<li>{{ item.title }}</li>
-<li>{{ item.memo }}</li>
-</ul>
+<div class="alert alert-success" role="alert">
+    {{ item.title }}
+</div>
+
+<div class="alert alert-success" role="alert">
+    {{ item.memo }}
+</div>
+
 {% endfor %}
+
+{% endblock content %}
