@@ -1,0 +1,8 @@
+<!-- object_listはviews.pyのToDoListで指定した全てのmodelデータ -->
+{% for item in object_list %}
+<!-- 各フィールドを指定しオブジェクトを取り出す -->
+<ul>
+<li>{{ item.title }}</li>
+<li>{{ item.memo }}</li>
+</ul>
+{% endfor %}

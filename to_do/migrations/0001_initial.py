@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ToDoModel',
             fields=[
-                # model作成時にidが自動生成される
+                # model作成時にidが自動生成される DetailViewで使用するpkはidを用いる
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=100)),
                 ('memo', models.TextField()),
