@@ -2,23 +2,26 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<div class="alert alert-dark" role="alert">
-list
-</div>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">ToDoList</h1>
+      <p class="lead">タスクをToDoListに記載して管理しましょう。</p>
+    </div>
+  </div>
 {% endblock %}
 
 {% block content %}
 <!-- object_listはviews.pyのToDoListで指定した全てのmodelデータ -->
-{% for item in object_list %}
-<!-- 各フィールドを指定しオブジェクトを取り出す -->
-<div class="alert alert-success" role="alert">
-    {{ item.title }}
+<div class="container">
+    {% for item in object_list %}
+    <!-- 各フィールドを指定しオブジェクトを取り出す -->
+    <!-- {{ item.priority }}で優先度に応じたalert-以降の文字列を引っ張ってくる -->
+    <div class="alert alert-{{ item.priority }}" role="alert">
+        <p>{{ item.title }}</p>
+        <a href="#" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">編集画面</a>
+        <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">削除画面</a>
+        <a href="#" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">詳細画面</a>
+    </div>
+    {% endfor %}
 </div>
-
-<div class="alert alert-success" role="alert">
-    {{ item.memo }}
-</div>
-
-{% endfor %}
-
 {% endblock content %}
