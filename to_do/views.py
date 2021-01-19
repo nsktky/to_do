@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView
 from .models import ToDoModel
+from django.urls import reverse_lazy
 
 # データの一覧をリストとして表示するクラス
 # ListViewを継承しclass based viewで作成
@@ -19,3 +20,8 @@ class ToDoDetail(DetailView):
 class ToDoCreate(CreateView):
     template_name = 'create.html'
     model = ToDoModel
+    # fieldsはmodelのどのフィールドを入力させるかを記載
+    fields = ('title', 'memo', 'priority', 'duedate')
+    # listと言う名前に対応したurlを逆引きする。reverseはurls→viewsの逆順
+    # lazyは入力されたデータに基づきオブジェクトが作成された後reverseするという意味
+    success_url = reverse_lazy('list')

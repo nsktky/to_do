@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="" method="POST">{% csrf_token %} 
+    <!-- CreateViewで指定したmodelに対応したデータをformの形で表示できる
+    as_pはformをpタグで囲うという意味 -->
+    {{ form.as_p }}
+    <input type="submit" value="create">
+</form>
+{% endblock content %}
