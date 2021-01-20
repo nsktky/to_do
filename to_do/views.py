@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, DeleteView
 from .models import ToDoModel
 from django.urls import reverse_lazy
 
@@ -24,4 +24,11 @@ class ToDoCreate(CreateView):
     fields = ('title', 'memo', 'priority', 'duedate')
     # listと言う名前に対応したurlを逆引きする。reverseはurls→viewsの逆順
     # lazyは入力されたデータに基づきオブジェクトが作成された後reverseするという意味
+    success_url = reverse_lazy('list')
+
+
+# データ削除のためのクラス
+class ToDoDelete(DeleteView):
+    template_name = 'delete.html'
+    model = ToDoModel
     success_url = reverse_lazy('list')

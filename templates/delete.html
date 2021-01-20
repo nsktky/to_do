@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- urls.pyでどのデータを消すかpkで分かっているため、formでは消すか消さないかだけレスポンスさせる -->
+<form action="" method="POST">{% csrf_token %} 
+    <input type="submit" value="delete">
+</form>
+{% endblock content %}
