@@ -13,11 +13,12 @@
 {% block content %}
 <!-- object_listはviews.pyのToDoListで指定した全てのmodelデータ -->
 <div class="container">
+  <a href="{% url 'create' %}" class="btn btn-secondary mb-2" tabindex="-1" role="button" aria-disabled="true">新規作成</a>
     {% for item in object_list %}
     <!-- 各フィールドを指定しオブジェクトを取り出す -->
     <!-- {{ item.priority }}で優先度に応じたalert-以降の文字列を引っ張ってくる -->
     <div class="alert alert-{{ item.priority }}" role="alert">
-        <p>{{ item.title }}</p>
+        <p>{{ item.title }} 期日:{{ item.duedate | date:'Y / n/j' }}</p>
         <!-- リンク先を設定urls.pyで指定したnameで逆引き どのデータか指定するためpkを指定-->
         <a href="{% url 'update' item.pk %}" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">編集画面</a>
         <a href="{% url 'delete' item.pk %}" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">削除画面</a>
