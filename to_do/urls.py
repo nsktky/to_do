@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import ToDoList, ToDoDetail, ToDoCreate, ToDoDelete
+from .views import ToDoList, ToDoDetail, ToDoCreate, ToDoDelete, ToDoUpdate
 
 urlpatterns = [
     # name引数で逆引きに対応
@@ -9,5 +9,7 @@ urlpatterns = [
     path('create/', ToDoCreate.as_view(), name='create'),
     # どのデータを消すのか指定する必要あるためpkを記載
     path('delete/<int:pk>', ToDoDelete.as_view(), name='delete'),
+    # どのデータを更新するのか指定する必要あるためpkを記載
+    path('update/<int:pk>', ToDoUpdate.as_view(), name='update'),
 
 ]

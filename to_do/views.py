@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 from .models import ToDoModel
 from django.urls import reverse_lazy
 
@@ -32,3 +32,13 @@ class ToDoDelete(DeleteView):
     template_name = 'delete.html'
     model = ToDoModel
     success_url = reverse_lazy('list')
+
+
+# データ更新のためのクラス
+class ToDoUpdate(UpdateView):
+    template_name = 'update.html'
+    model = ToDoModel
+    # html上でデータ編集するため、どのフィールドを表示させるか指定
+    fields = ('title', 'memo', 'priority', 'duedate')
+    success_url = reverse_lazy('list')
+

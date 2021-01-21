@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- formで入力させる際は、セキュリティのため{% csrf_token %}をformタグの中に記載する -->
+<form action="" method="POST">{% csrf_token %} 
+    <!-- CreateViewで指定したmodelに対応したデータをformの形で表示できる
+    as_pはformをpタグで囲うという意味 -->
+    {{ form.title }}
+    {{ form.memo }}
+    {{ form.priority }}
+    {{ form.duedate }}
+    <input type="submit" value="update">
+</form>
+{% endblock content %}

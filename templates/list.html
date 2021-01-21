@@ -18,9 +18,10 @@
     <!-- {{ item.priority }}で優先度に応じたalert-以降の文字列を引っ張ってくる -->
     <div class="alert alert-{{ item.priority }}" role="alert">
         <p>{{ item.title }}</p>
-        <a href="#" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">編集画面</a>
-        <a href="#" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">削除画面</a>
-        <a href="#" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">詳細画面</a>
+        <!-- リンク先を設定urls.pyで指定したnameで逆引き どのデータか指定するためpkを指定-->
+        <a href="{% url 'update' item.pk %}" class="btn btn-info" tabindex="-1" role="button" aria-disabled="true">編集画面</a>
+        <a href="{% url 'delete' item.pk %}" class="btn btn-success" tabindex="-1" role="button" aria-disabled="true">削除画面</a>
+        <a href="{% url 'detail' item.pk %}" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">詳細画面</a>
     </div>
     {% endfor %}
 </div>
