@@ -1,11 +1,23 @@
 {% extends 'base.html' %}
 
+{% block header %}
+<div class="container">
+    <div class="alert alert-dark" role="alert">
+      <p class="lead">やることをにゅうりょくします</p>
+    </div>
+</div>
+{% endblock %}
+
 {% block content %}
 <!-- formで入力させる際は、セキュリティのため{% csrf_token %}をformタグの中に記載する -->
-<form action="" method="POST">{% csrf_token %} 
-    <!-- CreateViewで指定したmodelに対応したデータをformの形で表示できる
-    as_pはformをpタグで囲うという意味 -->
-    {{ form.as_p }}
-    <input type="submit" value="create">
-</form>
+<div class="container">
+    <div class="alert alert-success" role="alert">
+        <form action="" method="POST">{% csrf_token %} 
+            <!-- CreateViewで指定したmodelに対応したデータをformの形で表示できる
+            as_pはformをpタグで囲うという意味 -->
+            {{ form.as_p }}
+            <input class="btn btn-outline-success" type="submit" value="とうろく">
+        </form>
+    </div>
+</div>
 {% endblock content %}

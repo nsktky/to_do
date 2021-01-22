@@ -2,7 +2,7 @@
 
 {% block header %}
 <div class="container">
-    <div class="alert alert-primary" role="alert">
+    <div class="alert alert-dark" role="alert">
       <p class="lead">それぞれのないようをひょうじします</p>
     </div>
 </div>
@@ -14,11 +14,11 @@
     <div class="alert alert-success" role="alert">
         
         <div class="alert alert-light" role="alert">
-        やること：{{ object.title }}
+        <h5>やること：{{ object.title }}</h5>
         </div>
 
         <div class="alert alert-light" role="alert">
-        くわしく：{{ object.memo }}
+        <h5>くわしく：{{ object.memo }}</h5>
         </div>
         <a href="{% url 'update' object.pk %}" class="btn btn-outline-success" tabindex="-1" role="button" aria-disabled="true">へんしゅう</a>
     </div>
