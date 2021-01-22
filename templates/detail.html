@@ -1,19 +1,26 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<div class="alert alert-dark" role="alert">
-detail
+<div class="container">
+    <div class="alert alert-primary" role="alert">
+      <p class="lead">それぞれのないようをひょうじします</p>
+    </div>
 </div>
 {% endblock %}
 
 {% block content %}
-<!-- modelで作成されたオブジェクトをobjectとして扱える -->
-<div class="alert alert-success" role="alert">
-    {{ object.title }}
-</div>
+<div class="container">
+    <!-- modelで作成されたオブジェクトをobjectとして扱える -->
+    <div class="alert alert-success" role="alert">
+        
+        <div class="alert alert-light" role="alert">
+        やること：{{ object.title }}
+        </div>
 
-<div class="alert alert-success" role="alert">
-    {{ object.memo }}
+        <div class="alert alert-light" role="alert">
+        くわしく：{{ object.memo }}
+        </div>
+        <a href="{% url 'update' object.pk %}" class="btn btn-outline-success" tabindex="-1" role="button" aria-disabled="true">へんしゅう</a>
+    </div>
 </div>
-
 {% endblock content %}
